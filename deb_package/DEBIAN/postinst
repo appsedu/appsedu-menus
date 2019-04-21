@@ -1,0 +1,18 @@
+#!/bin/bash
+
+cat /etc/passwd | grep '/home/' | \
+grep -v 'cups\|syslog' | cut -d ':' -f 1 > /tmp/homes.list
+
+while read USUARIO; do
+	runuser -l $USUARIO -c "mkdir -p /home/$USUARIO/.config/menus/applications-merged/"
+	runuser -l $USUARIO -c \
+	"cp -rf /tmp/education-Math.directory /home/$USUARIO/.local/share/desktop-directories/"
+	runuser -l $USUARIO -c \
+	"cp -rf /tmp/geogebra-classic.menu /home/$USUARIO/.config/menus/applications-merged/"
+	runuser -l $USUARIO -c \
+	"cp -rf /tmp/geogebra-classic.desktop /home/$USUARIO/.local/share/applications/"
+	runuser -l $USUARIO -c "rm -rf /home/$USUARIO/.cache/"
+	if [ -f /usr/bin/lxpanelctl ]; then
+		su - $USUARIO -c "lxpanelctl restart"
+	fi
+done < /tmp/homes.list
