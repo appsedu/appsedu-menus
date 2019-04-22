@@ -6,4 +6,17 @@ grep -v 'cups\|syslog' | cut -d ':' -f 6 > /tmp/homes.list
 while read BASEDIR; do
 	rm -rf "$BASEDIR/.config/menus/applications-merged/geogebra-classic.menu"
     rm -rf "$BASEDIR/.local/share/applications/geogebra-classic.desktop"
+    
+    rm -rf "$BASEDIR/.config/menus/applications-merged/wxMaxima.menu"
+    rm -rf "$BASEDIR/.local/share/applications/wxMaxima.desktop"
+
+    rm -rf "$BASEDIR/.config/menus/applications-merged/gresistor.menu"
+    rm -rf "$BASEDIR/.local/share/applications/gresistor.desktop"
+
+    rm -rf "$BASEDIR/.config/menus/applications-merged/kde-step.menu"
+    rm -rf "$BASEDIR/.local/share/applications/org.kde.step.desktop"
+
+    rm -rf "$BASEDIR/.config/menus/applications-merged/avogrado.menu"
+    rm -rf "$BASEDIR/.local/share/applications/avogadro.desktop"
+
 done < /tmp/homes.list
