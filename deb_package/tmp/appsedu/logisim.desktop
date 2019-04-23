@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Logisim
+Comment=Graphical tool for designing and simulating logic circuits
+Exec=logisim
+Icon=logisim-icon-128
+Terminal=false
+Type=Application

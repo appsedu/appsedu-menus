@@ -1,0 +1,36 @@
+[Desktop Entry]
+Version=1.0
+Name=GChemPaint
+Name[de]=GChemPaint
+Name[el]=GChemPaint
+Name[es]=GChemPaint
+Name[eu]=GChemPaint
+Name[fr]=GChemPaint
+Name[it]=GChemPaint
+Name[pl]=GChemPaint
+Name[pt_BR]=GChemPaint
+Name[ru]=GChemPaint
+Name[zh_CN]=GChemPaint
+Name[zh_TW]=GChemPaint
+GenericName=2D Chemical Structures Editor
+GenericName[fr]=Éditeur/Visonneuse de structures chimiques 2D
+Comment=Edit chemical 2D structures
+Comment[de]=Erstellt 2D-Formeln chemischer Strukturen
+Comment[el]=Επεξεργασία 2Δ χημικών δομών
+Comment[es]=Editar estructuras químicas 2D
+Comment[eu]=2D-ko egitura kimikoak editatu
+Comment[fr]=Édite des structures chimiques 2D
+Comment[it]=Modifica le strutture chimiche 2D
+Comment[pl]=Edytuj dwuwymiarowe wzory chemiczne
+Comment[pt_BR]=Edita estruturas químicas 2D
+Comment[ru]=Редактирование химических структур
+Comment[zh_CN]=编辑 2D 化学结构
+Comment[zh_TW]=編輯 2D 化學結構
+Exec=gchempaint-0.14 %U
+# TRANSLATORS: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+Keywords=chemistry;2D;editor;display;printer;
+Keywords[fr]=chimie;2D;éditeur;affichage;imprimante;
+Terminal=false
+Type=Application
+Icon=gchempaint
+MimeType=application/x-gchempaint;chemical/x-cml;chemical/x-pdb;chemical/x-cdx;chemical/x-cdxml;chemical/x-mdl-molfile;chemical/x-ncbi-asn1;chemical/x-ncbi-asn1-binary;chemical/x-ncbi-asn1-xml;

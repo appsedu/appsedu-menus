@@ -3,20 +3,27 @@
 cat /etc/passwd | grep '/home/' | \
 grep -v 'cups\|syslog' | cut -d ':' -f 6 > /tmp/homes.list
 
+function rmLauch {
+    rm -rf "$BASEDIR/.config/menus/applications-merged/$1.menu"
+    rm -rf "$BASEDIR/.local/share/applications/$1.desktop"
+}
+
 while read BASEDIR; do
-	rm -rf "$BASEDIR/.config/menus/applications-merged/geogebra-classic.menu"
-    rm -rf "$BASEDIR/.local/share/applications/geogebra-classic.desktop"
-    
-    rm -rf "$BASEDIR/.config/menus/applications-merged/wxMaxima.menu"
-    rm -rf "$BASEDIR/.local/share/applications/wxMaxima.desktop"
-
-    rm -rf "$BASEDIR/.config/menus/applications-merged/gresistor.menu"
-    rm -rf "$BASEDIR/.local/share/applications/gresistor.desktop"
-
-    rm -rf "$BASEDIR/.config/menus/applications-merged/kde-step.menu"
-    rm -rf "$BASEDIR/.local/share/applications/org.kde.step.desktop"
-
-    rm -rf "$BASEDIR/.config/menus/applications-merged/avogrado.menu"
-    rm -rf "$BASEDIR/.local/share/applications/avogadro.desktop"
-
+    rmLaunch "org.kde.step"
+    rmLaunch "geogebra-classic"
+    rmLaunch "wxMaxima"
+    rmLaunch "gresistor"
+    rmLaunch "avogadro"
+    rmLaunch "gchem3d-0.14"
+    rmLaunch "gchemcalc-0.14"
+    rmLaunch "gchempaint-0.14"
+    rmLaunch "gelemental"
+    rmLaunch "gspectrum-0.14"
+    rmLaunch "gchemtable-0.14"
+    rmLaunch "org.kde.marble.maps"
+    rmLaunch "org.kde.marble-qt"
+    rmLaunch "klavaro"
+    rmLaunch "scratch"
+    rmLaunch "logisim"
+    rmLaunch "stellarium"
 done < /tmp/homes.list

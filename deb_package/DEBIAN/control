@@ -5,6 +5,6 @@ Maintainer: Crash and Eddie <crash.eddie123@gmail.com>
 Section: science
 Architecture: all
 Priority: optional
-Depends: geogebra-classic, wxmaxima, gresistor, step, avogadro
+Depends: step, geogebra-classic, wxmaxima, gresistor, avogadro, gchempaint, gelemental, gcu-bin, marble-maps, marble-qt, klavaro, scratch, logisim, stellarium
 Description: Submenus para Aplicativos educationais.
  Os aplicativos educacionais ficaram divididos em submenus na categoria Educacional.
