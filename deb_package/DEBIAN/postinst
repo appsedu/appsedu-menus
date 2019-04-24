@@ -29,6 +29,7 @@ function deployLaunch {
 
 while read USUARIO; do
 	runuser -l $USUARIO -c "mkdir -p /home/$USUARIO/.config/menus/applications-merged/"
+	runuser -l $USUARIO -c "mkdir -p /home/$USUARIO/.local/share/desktop-directories/"
 	
 	runuser -l $USUARIO -c \
 	"cp -rf /tmp/appsedu/education-Math.directory /home/$USUARIO/.local/share/desktop-directories/"

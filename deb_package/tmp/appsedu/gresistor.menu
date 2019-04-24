@@ -12,5 +12,12 @@
 				<Filename>gresistor.desktop</Filename>
 			</Include>
 		</Menu>
+		<Menu>
+			<Name>education-Electronics</Name>
+			<Directory>education-Electronics.directory</Directory>
+			<Include>
+				<Filename>gresistor.desktop</Filename>
+			</Include>
+		</Menu>
 	</Menu>
 </Menu>

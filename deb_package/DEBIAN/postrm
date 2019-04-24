@@ -3,12 +3,15 @@
 cat /etc/passwd | grep '/home/' | \
 grep -v 'cups\|syslog' | cut -d ':' -f 6 > /tmp/homes.list
 
-function rmLauch {
+function rmLaunch {
     rm -rf "$BASEDIR/.config/menus/applications-merged/$1.menu"
     rm -rf "$BASEDIR/.local/share/applications/$1.desktop"
+    rm -rf "$BASEDIR/Desktop/$1.desktop"
 }
 
 while read BASEDIR; do
+    USUARIO=basename $BASEDIR
+    
     rmLaunch "org.kde.step"
     rmLaunch "geogebra-classic"
     rmLaunch "wxMaxima"
@@ -26,4 +29,9 @@ while read BASEDIR; do
     rmLaunch "scratch"
     rmLaunch "logisim"
     rmLaunch "stellarium"
+
+    runuser -l $USUARIO -c "rm -rf /home/$USUARIO/.cache/"
+    if [ -f /usr/bin/lxpanelctl ]; then
+        su - $USUARIO -c "lxpanelctl restart"
+    fi
 done < /tmp/homes.list
