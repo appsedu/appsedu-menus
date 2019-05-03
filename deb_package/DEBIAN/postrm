@@ -29,6 +29,8 @@ while read BASEDIR; do
     rmLaunch "scratch"
     rmLaunch "logisim"
     rmLaunch "stellarium"
+    rmLaunch "google-earth-edu"
+    rmLaunch "zygoto-body"
 
     runuser -l $USUARIO -c "rm -rf /home/$USUARIO/.cache/"
     if [ -f /usr/bin/lxpanelctl ]; then
