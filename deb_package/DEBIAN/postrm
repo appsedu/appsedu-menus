@@ -31,6 +31,13 @@ while read BASEDIR; do
     rmLaunch "stellarium"
     rmLaunch "google-earth-edu"
     rmLaunch "zygoto-body"
+    rmLaunch "org.kde.kgeography"
+    rmLaunch "org.kde.kstars"
+    rmLaunch "org.kde.ktouch"
+    rmLaunch "sweethome3d"
+    rmLaunch "freecad-daily"
+    rmLaunch "librecad"
+    rmLaunch "solvespace"
 
     runuser -l $USUARIO -c "rm -rf /home/$USUARIO/.cache/"
     if [ -f /usr/bin/lxpanelctl ]; then

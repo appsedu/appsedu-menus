@@ -7,9 +7,9 @@ function geraShort {
 	echo "[Desktop Entry]"
 	echo "Type=Link"
 	cat $1 | \
-	grep "Name=" | head -n1
+	grep "^Name=" | head -n1
 	cat $1 | \
-	grep "Name[pt_BR]=" | head -n1
+	grep "^Name[pt_BR]=" | head -n1
 	cat $1 | \
 	grep "Icon=" | head -n1
 	echo "URL=$2"
@@ -47,10 +47,13 @@ while read USUARIO; do
 	"cp -rf /tmp/appsedu/education-Astronomy.directory /home/$USUARIO/.local/share/desktop-directories/"
 	runuser -l $USUARIO -c \
 	"cp -rf /tmp/appsedu/education-Biology.directory /home/$USUARIO/.local/share/desktop-directories/"
+	runuser -l $USUARIO -c \
+	"cp -rf /tmp/appsedu/education-TechnicalDrawing.directory /home/$USUARIO/.local/share/desktop-directories/"
 
 	deployLaunch "org.kde.step"
 	deployLaunch "geogebra-classic"
 	deployLaunch "wxMaxima"
+	deployLaunch "libreoffice-math"
 	deployLaunch "gresistor"
 	deployLaunch "avogadro"
 	deployLaunch "gchem3d-0.14" "noshort"
@@ -67,6 +70,13 @@ while read USUARIO; do
 	deployLaunch "stellarium"
 	deployLaunch "google-earth-edu"
 	deployLaunch "zygoto-body"
+	deployLaunch "org.kde.kgeography"
+	deployLaunch "org.kde.kstars"
+	deployLaunch "org.kde.ktouch"
+	deployLaunch "sweethome3d"
+	deployLaunch "freecad-daily"
+	deployLaunch "librecad"
+	deployLaunch "solvespace"
 
 	runuser -l $USUARIO -c "rm -rf /home/$USUARIO/.cache/"
 	if [ -f /usr/bin/lxpanelctl ]; then
