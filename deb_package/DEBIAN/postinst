@@ -17,11 +17,23 @@ function geraShort {
 
 function deployLaunch {
 	runuser -l $USUARIO -c \
-	"cp -rf /tmp/appsedu/$1.menu /home/$USUARIO/.config/menus/applications-merged/"
+	"cp -rf /tmp/appsedu/menu/$1.menu /home/$USUARIO/.config/menus/applications-merged/"
 	runuser -l $USUARIO -c \
-	"cp -rf /tmp/appsedu/$1.desktop /home/$USUARIO/.local/share/applications/"
+	"cp -rf /tmp/appsedu/launch/$1.desktop /home/$USUARIO/.local/share/applications/"
 	if [ "$2" != "noshort" ]; then
-		geraShort /tmp/appsedu/$1.desktop \
+		geraShort /tmp/appsedu/launch/$1.desktop \
+		/home/$USUARIO/.local/share/applications/$1.desktop \
+		> /home/$USUARIO/Desktop/$1.desktop
+	fi
+}
+
+function deployLaunchNoGL {
+	runuser -l $USUARIO -c \
+	"cp -rf /tmp/appsedu/menu/$1.menu /home/$USUARIO/.config/menus/applications-merged/"
+	runuser -l $USUARIO -c \
+	"cp -rf /tmp/appsedu/nogl/$1.desktop /home/$USUARIO/.local/share/applications/"
+	if [ "$2" != "noshort" ]; then
+		geraShort /tmp/appsedu/nogl/$1.desktop \
 		/home/$USUARIO/.local/share/applications/$1.desktop \
 		> /home/$USUARIO/Desktop/$1.desktop
 	fi
@@ -32,23 +44,23 @@ while read USUARIO; do
 	runuser -l $USUARIO -c "mkdir -p /home/$USUARIO/.local/share/desktop-directories/"
 	
 	runuser -l $USUARIO -c \
-	"cp -rf /tmp/appsedu/education-Math.directory /home/$USUARIO/.local/share/desktop-directories/"
+	"cp -rf /tmp/appsedu/category/education-Math.directory /home/$USUARIO/.local/share/desktop-directories/"
 	runuser -l $USUARIO -c \
-	"cp -rf /tmp/appsedu/education-Physics.directory /home/$USUARIO/.local/share/desktop-directories/"
+	"cp -rf /tmp/appsedu/category/education-Physics.directory /home/$USUARIO/.local/share/desktop-directories/"
 	runuser -l $USUARIO -c \
-	"cp -rf /tmp/appsedu/education-Chemistry.directory /home/$USUARIO/.local/share/desktop-directories/"
+	"cp -rf /tmp/appsedu/category/education-Chemistry.directory /home/$USUARIO/.local/share/desktop-directories/"
 	runuser -l $USUARIO -c \
-	"cp -rf /tmp/appsedu/education-Geography.directory /home/$USUARIO/.local/share/desktop-directories/"
+	"cp -rf /tmp/appsedu/category/education-Geography.directory /home/$USUARIO/.local/share/desktop-directories/"
 	runuser -l $USUARIO -c \
-	"cp -rf /tmp/appsedu/education-Computing.directory /home/$USUARIO/.local/share/desktop-directories/"
+	"cp -rf /tmp/appsedu/category/education-Computing.directory /home/$USUARIO/.local/share/desktop-directories/"
 	runuser -l $USUARIO -c \
-	"cp -rf /tmp/appsedu/education-Electronics.directory /home/$USUARIO/.local/share/desktop-directories/"
+	"cp -rf /tmp/appsedu/category/education-Electronics.directory /home/$USUARIO/.local/share/desktop-directories/"
 	runuser -l $USUARIO -c \
-	"cp -rf /tmp/appsedu/education-Astronomy.directory /home/$USUARIO/.local/share/desktop-directories/"
+	"cp -rf /tmp/appsedu/category/education-Astronomy.directory /home/$USUARIO/.local/share/desktop-directories/"
 	runuser -l $USUARIO -c \
-	"cp -rf /tmp/appsedu/education-Biology.directory /home/$USUARIO/.local/share/desktop-directories/"
+	"cp -rf /tmp/appsedu/category/education-Biology.directory /home/$USUARIO/.local/share/desktop-directories/"
 	runuser -l $USUARIO -c \
-	"cp -rf /tmp/appsedu/education-TechnicalDrawing.directory /home/$USUARIO/.local/share/desktop-directories/"
+	"cp -rf /tmp/appsedu/category/education-TechnicalDrawing.directory /home/$USUARIO/.local/share/desktop-directories/"
 
 	deployLaunch "org.kde.step"
 	deployLaunch "geogebra-classic"
@@ -66,17 +78,34 @@ while read USUARIO; do
 	deployLaunch "org.kde.marble-qt"
 	deployLaunch "klavaro"
 	deployLaunch "scratch"
-	deployLaunch "logisim"
-	deployLaunch "stellarium"
-	deployLaunch "google-earth-edu"
-	deployLaunch "zygoto-body"
+	deployLaunch "logisim"	
+	deployLaunch "google-maps"
 	deployLaunch "org.kde.kgeography"
 	deployLaunch "org.kde.kstars"
 	deployLaunch "org.kde.ktouch"
-	deployLaunch "sweethome3d"
-	deployLaunch "freecad-daily"
 	deployLaunch "librecad"
 	deployLaunch "solvespace"
+
+	glVersion=$(glxinfo | grep "OpenGL version" | cut -d: -f2 | cut -d" " -f2)
+
+	gl1=$(echo $glVersion | cut -d. -f1)
+	gl2=$(echo $glVersion | cut -d. -f2)
+
+	if [ "$gl1$gl2" -le "13" ]; then
+		deployLaunchNoGL "stellarium"
+		deployLaunchNoGL "freecad-daily"
+	elif [ "$gl1$gl2" -le "14" ]; then
+		deployLaunchNoGL "stellarium"
+		deployLaunchNoGL "freecad-daily"
+		deployLaunchNoGL "google-earth-edu"
+		deployLaunch "sweethome3d"
+	else
+		deployLaunch "stellarium"
+		deployLaunch "freecad-daily"
+		deployLaunch "google-earth-edu"
+		deployLaunch "zygoto-body"
+		deployLaunch "sweethome3d"
+	fi
 
 	runuser -l $USUARIO -c "rm -rf /home/$USUARIO/.cache/"
 	if [ -f /usr/bin/lxpanelctl ]; then
