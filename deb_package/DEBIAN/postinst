@@ -65,7 +65,7 @@ while read USUARIO; do
 	deployLaunch "org.kde.step"
 	deployLaunch "geogebra-classic"
 	deployLaunch "wxMaxima"
-	deployLaunch "libreoffice-math"
+	deployLaunch "libreoffice-math" "noshort"
 	deployLaunch "gresistor"
 	deployLaunch "avogadro"
 	deployLaunch "gchem3d-0.14" "noshort"
