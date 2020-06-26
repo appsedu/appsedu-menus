@@ -1,0 +1,21 @@
+<!DOCTYPE Menu PUBLIC "-//freedesktop//DTD Menu 1.0//EN"
+"http://www.freedesktop.org/standards/menu-spec/menu-1.0.dtd">
+<Menu>
+	<Name>Applications</Name>
+	<Menu>
+		<Name>Education</Name>
+		<Directory>lxde-education.directory</Directory>
+		<Menu>
+			<Name>education-Electricity</Name>
+			<Directory>education-Electricity.directory</Directory>
+			<Include>
+				<Filename>logisim.desktop</Filename>
+				<Filename>gresistor.desktop</Filename>
+				<Filename>arduino.desktop</Filename>
+				<Filename>circuit-simulator.desktop</Filename>
+				<Filename>circuitmod.desktop</Filename>
+				<Filename>simulide.desktop</Filename>
+			</Include>
+		</Menu>
+	</Menu>
+</Menu>

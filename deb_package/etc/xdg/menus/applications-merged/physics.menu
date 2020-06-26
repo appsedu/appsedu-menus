@@ -1,0 +1,19 @@
+<!DOCTYPE Menu PUBLIC "-//freedesktop//DTD Menu 1.0//EN"
+"http://www.freedesktop.org/standards/menu-spec/menu-1.0.dtd">
+<Menu>
+	<Name>Applications</Name>
+	<Menu>
+		<Name>Education</Name>
+		<Directory>lxde-education.directory</Directory>
+		<Menu>
+			<Name>education-Physics</Name>
+			<Directory>education-Physics.directory</Directory>
+			<Include>
+				<Filename>Algodoo.desktop</Filename>
+				<Filename>optgeo-i18n.desktop</Filename>
+				<Filename>Physion.desktop</Filename>
+				<Filename>org.kde.step.desktop</Filename>
+			</Include>
+		</Menu>
+	</Menu>
+</Menu>

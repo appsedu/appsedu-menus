@@ -1,47 +1,60 @@
 #!/bin/bash
 
+function rmLaunch {
+    rm -rf "$BASEDIR/.local/share/applications/$1.desktop"
+    rm -rf "$BASEDIR/Desktop/$1.desktop" 2> /dev/null
+}
+
 cat /etc/passwd | grep '/home/' | \
 grep -v 'cups\|syslog' | cut -d ':' -f 6 > /tmp/homes.list
 
-function rmLaunch {
-    rm -rf "$BASEDIR/.config/menus/applications-merged/$1.menu"
-    rm -rf "$BASEDIR/.local/share/applications/$1.desktop"
-    rm -rf "$BASEDIR/Desktop/$1.desktop"
-}
-
 while read BASEDIR; do
-    USUARIO=basename $BASEDIR
-    
-    rmLaunch "org.kde.step"
-    rmLaunch "geogebra-classic"
-    rmLaunch "wxMaxima"
-    rmLaunch "gresistor"
-    rmLaunch "avogadro"
-    rmLaunch "gchem3d-0.14"
-    rmLaunch "gchemcalc-0.14"
-    rmLaunch "gchempaint-0.14"
-    rmLaunch "gelemental"
-    rmLaunch "gspectrum-0.14"
-    rmLaunch "gchemtable-0.14"
-    rmLaunch "org.kde.marble.maps"
-    rmLaunch "org.kde.marble-qt"
-    rmLaunch "klavaro"
-    rmLaunch "scratch"
-    rmLaunch "logisim"
-    rmLaunch "stellarium"
-    rmLaunch "stellarium-nogl"
+    USUARIO=$(basename $BASEDIR)
+
+    rmLaunch "celestia"
     rmLaunch "google-earth-edu"
-    rmLaunch "google-earth-edu-nogl"
-    rmLaunch "zygoto-body"
-    rmLaunch "google-maps"
-    rmLaunch "org.kde.kgeography"
     rmLaunch "org.kde.kstars"
-    rmLaunch "org.kde.ktouch"
-    rmLaunch "sweethome3d"
-    rmLaunch "freecad-daily"
-    rmLaunch "freecad-daily-nogl"
+    rmLaunch "openuniverse"
+    rmLaunch "stellarium"
+    rmLaunch "planets"
+    rmLaunch "gpredict"
+
+    rmLaunch "3d-microscope-lab"
+	rmLaunch "anatomy-learning"
+	rmLaunch "virtual-microscope"
+	rmLaunch "zygoto-body"
+
+    rmLaunch "freecad"
     rmLaunch "librecad"
-    rmLaunch "solvespace"
+	rmLaunch "solvespace"
+    rmLaunch "sweethome3d"
+	rmLaunch "gcad3d"
+
+    #rmLaunch "Algodoo"
+	rmLaunch "optgeo-i18n"
+	#rmLaunch "Physion"
+	rmLaunch "org.kde.step"
+
+    # rmLaunch "anki"
+    # rmLaunch "geogebra-classic"
+    # rmLaunch "wxMaxima"
+    # rmLaunch "libreoffice-math"
+    # rmLaunch "gresistor"
+    # rmLaunch "avogadro"
+    # rmLaunch "gchem3d-0.14"
+    # rmLaunch "gchemcalc-0.14"
+    # rmLaunch "gchempaint-0.14"
+    # rmLaunch "gelemental"
+    # rmLaunch "gspectrum-0.14"
+    # rmLaunch "gchemtable-0.14"
+    # rmLaunch "org.kde.marble.maps"
+    # rmLaunch "org.kde.marble-qt"
+    # rmLaunch "klavaro"
+    # rmLaunch "scratch"
+    # rmLaunch "logisim"
+    # rmLaunch "google-maps"
+    # rmLaunch "org.kde.kgeography"
+    # rmLaunch "org.kde.ktouch"
 
     runuser -l $USUARIO -c "rm -rf /home/$USUARIO/.cache/"
     if [ -f /usr/bin/lxpanelctl ]; then

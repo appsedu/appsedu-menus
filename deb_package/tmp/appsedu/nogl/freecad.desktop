@@ -1,0 +1,16 @@
+[Desktop Entry]
+Version=1.0
+Name=FreeCAD (No OpenGL)
+Name[de]=FreeCAD
+Comment=Feature based Parametric Modeler
+Comment[de]=Feature-basierter parametrischer Modellierer
+GenericName=CAD Application
+GenericName[de]=CAD-Anwendung
+Exec=env LIBGL_ALWAYS_SOFTWARE=1 /usr/bin/freecad --single-instance %F
+Terminal=false
+Type=Application
+Icon=freecad
+StartupNotify=true
+GenericName[de_DE]=Feature-basierter parametrischer Modellierer
+Comment[de_DE]=Feature-basierter parametrischer Modellierer
+MimeType=application/x-extension-fcstd

@@ -1,110 +1,98 @@
 #!/bin/bash
 
-cat /etc/passwd | grep '/home/' | \
-grep -v 'cups\|syslog' | cut -d ':' -f 1 > /tmp/homes.list
-
-function geraShort {
-	echo "[Desktop Entry]"
-	echo "Type=Link"
-	cat $1 | \
-	grep "^Name=" | head -n1
-	cat $1 | \
-	grep "^Name[pt_BR]=" | head -n1
-	cat $1 | \
-	grep "Icon=" | head -n1
-	echo "URL=$2"
-}
-
 function deployLaunch {
-	runuser -l $USUARIO -c \
-	"cp -rf /tmp/appsedu/menu/$1.menu /home/$USUARIO/.config/menus/applications-merged/"
+	echo $1
+	if [ ! -f $2 ]; then
+		echo "NOT FOUND $2"
+		return
+	fi
 	runuser -l $USUARIO -c \
 	"cp -rf /tmp/appsedu/launch/$1.desktop /home/$USUARIO/.local/share/applications/"
-	if [ "$2" != "noshort" ]; then
-		geraShort /tmp/appsedu/launch/$1.desktop \
-		/home/$USUARIO/.local/share/applications/$1.desktop \
-		> /home/$USUARIO/Desktop/$1.desktop
+	if [ "$3" == "short" ]; then
+		cp /tmp/appsedu/launch/$1.desktop /home/$USUARIO/Desktop/$1.desktop
 	fi
 }
 
 function deployLaunchNoGL {
-	runuser -l $USUARIO -c \
-	"cp -rf /tmp/appsedu/menu/$1.menu /home/$USUARIO/.config/menus/applications-merged/"
+	if [ ! -f $2 ]; then
+		return
+	fi
 	runuser -l $USUARIO -c \
 	"cp -rf /tmp/appsedu/nogl/$1.desktop /home/$USUARIO/.local/share/applications/"
-	if [ "$2" != "noshort" ]; then
-		geraShort /tmp/appsedu/nogl/$1.desktop \
-		/home/$USUARIO/.local/share/applications/$1.desktop \
-		> /home/$USUARIO/Desktop/$1.desktop
+	if [ "$3" == "short" ]; then
+		cp /tmp/appsedu/nogl/$1.desktop /home/$USUARIO/Desktop/$1.desktop
 	fi
 }
 
-while read USUARIO; do
-	runuser -l $USUARIO -c "mkdir -p /home/$USUARIO/.config/menus/applications-merged/"
-	runuser -l $USUARIO -c "mkdir -p /home/$USUARIO/.local/share/desktop-directories/"
-	
-	runuser -l $USUARIO -c \
-	"cp -rf /tmp/appsedu/category/education-Math.directory /home/$USUARIO/.local/share/desktop-directories/"
-	runuser -l $USUARIO -c \
-	"cp -rf /tmp/appsedu/category/education-Physics.directory /home/$USUARIO/.local/share/desktop-directories/"
-	runuser -l $USUARIO -c \
-	"cp -rf /tmp/appsedu/category/education-Chemistry.directory /home/$USUARIO/.local/share/desktop-directories/"
-	runuser -l $USUARIO -c \
-	"cp -rf /tmp/appsedu/category/education-Geography.directory /home/$USUARIO/.local/share/desktop-directories/"
-	runuser -l $USUARIO -c \
-	"cp -rf /tmp/appsedu/category/education-Computing.directory /home/$USUARIO/.local/share/desktop-directories/"
-	runuser -l $USUARIO -c \
-	"cp -rf /tmp/appsedu/category/education-Electronics.directory /home/$USUARIO/.local/share/desktop-directories/"
-	runuser -l $USUARIO -c \
-	"cp -rf /tmp/appsedu/category/education-Astronomy.directory /home/$USUARIO/.local/share/desktop-directories/"
-	runuser -l $USUARIO -c \
-	"cp -rf /tmp/appsedu/category/education-Biology.directory /home/$USUARIO/.local/share/desktop-directories/"
-	runuser -l $USUARIO -c \
-	"cp -rf /tmp/appsedu/category/education-TechnicalDrawing.directory /home/$USUARIO/.local/share/desktop-directories/"
+cat /etc/passwd | grep '/home/' | \
+grep -v 'cups\|syslog' | cut -d ':' -f 1 > /tmp/homes.list
 
-	deployLaunch "org.kde.step"
-	deployLaunch "geogebra-classic"
-	deployLaunch "wxMaxima"
-	deployLaunch "libreoffice-math" "noshort"
-	deployLaunch "gresistor"
-	deployLaunch "avogadro"
-	deployLaunch "gchem3d-0.14" "noshort"
-	deployLaunch "gchemcalc-0.14" "noshort"
-	deployLaunch "gchempaint-0.14"
-	deployLaunch "gelemental"
-	deployLaunch "gspectrum-0.14" "noshort"
-	deployLaunch "gchemtable-0.14"
-	deployLaunch "org.kde.marble.maps" "noshort"
-	deployLaunch "org.kde.marble-qt"
-	deployLaunch "klavaro"
-	deployLaunch "scratch"
-	deployLaunch "logisim"	
-	deployLaunch "google-maps"
-	deployLaunch "org.kde.kgeography"
-	deployLaunch "org.kde.kstars"
-	deployLaunch "org.kde.ktouch"
-	deployLaunch "librecad"
-	deployLaunch "solvespace"
+while read USUARIO; do
+	deployLaunch "celestia" "/usr/bin/celestia"
+	deployLaunch "org.kde.kstars" "/usr/bin/kstars"
+	deployLaunch "openuniverse" "/usr/bin/openuniverse"
+	deployLaunch "planets" "/usr/bin/planets"
+	deployLaunch "gpredict" "/usr/bin/gpredict"
+
+	deployLaunch "3d-microscope-lab" "/usr/bin/firefox"
+	deployLaunch "anatomy-learning" "/usr/bin/firefox"
+	deployLaunch "virtual-microscope" "/usr/bin/virtual-microscope"
+	deployLaunch "zygoto-body" "/usr/bin/firefox"
+
+	deployLaunch "librecad" "/usr/bin/librecad"
+	deployLaunch "solvespace" "/usr/bin/solvespace"
+	deployLaunch "gcad3d" "/usr/bin/gcad3d"
+
+	deployLaunch "Algodoo" "/usr/bin/wine"
+	deployLaunch "optgeo-i18n" "/opt/optgeo/optgeo"
+	deployLaunch "Physion" "/usr/bin/wine"
+	deployLaunch "org.kde.step" "/usr/bin/step"
+
+	# deployLaunch "anki"
+	# 
+	# deployLaunch "geogebra-classic"
+	# deployLaunch "io.github.wxmaxima_developers.wxMaxima"
+	# deployLaunch "libreoffice-math"
+	# deployLaunch "gresistor"
+	# deployLaunch "avogadro2"
+	# deployLaunch "gchem3d-0.14"
+	# deployLaunch "gchemcalc-0.14"
+	# deployLaunch "gchempaint-0.14"
+	# deployLaunch "gelemental"
+	# deployLaunch "gspectrum-0.14"
+	# deployLaunch "gchemtable-0.14"
+	# deployLaunch "org.kde.marble.maps"
+	# deployLaunch "org.kde.marble-qt"
+	# deployLaunch "klavaro"
+	# deployLaunch "scratch"
+	# deployLaunch "logisim"
+	# deployLaunch "google-maps"
+	# deployLaunch "org.kde.kgeography"
+	
+	# deployLaunch "org.kde.ktouch"
 
 	glVersion=$(glxinfo | grep "OpenGL version" | cut -d: -f2 | cut -d" " -f2)
-
 	gl1=$(echo $glVersion | cut -d. -f1)
 	gl2=$(echo $glVersion | cut -d. -f2)
 
 	if [ "$gl1$gl2" -le "13" ]; then
-		deployLaunchNoGL "stellarium"
-		deployLaunchNoGL "freecad-daily"
+		echo "OpenGL <= 1.3"
+		deployLaunchNoGL "google-earth-edu" "/usr/bin/google-earth-pro"
+		deployLaunchNoGL "stellarium" "/usr/bin/stellarium"
+		deployLaunchNoGL "freecad" "/usr/bin/freecad"
+		deployLaunch "sweethome3d" "/usr/bin/sweethome3d"
 	elif [ "$gl1$gl2" -le "14" ]; then
-		deployLaunchNoGL "stellarium"
-		deployLaunchNoGL "freecad-daily"
-		deployLaunchNoGL "google-earth-edu"
-		deployLaunch "sweethome3d"
+		echo "OpenGL <= 1.4"
+		deployLaunchNoGL "google-earth-edu" "/usr/bin/google-earth-pro"
+		deployLaunchNoGL "stellarium" "/usr/bin/stellarium"
+		deployLaunchNoGL "freecad" "/usr/bin/freecad"
+		deployLaunch "sweethome3d" "/usr/bin/sweethome3d"
 	else
-		deployLaunch "stellarium"
-		deployLaunch "freecad-daily"
-		deployLaunch "google-earth-edu"
-		deployLaunch "zygoto-body"
-		deployLaunch "sweethome3d"
+		echo "OpenGL > 1.4"
+		deployLaunch "google-earth-edu" "/usr/bin/google-earth-pro"
+		deployLaunch "stellarium" "/usr/bin/stellarium"
+		deployLaunch "freecad" "/usr/bin/freecad"
+		deployLaunch "sweethome3d" "/usr/bin/sweethome3d"
 	fi
 
 	runuser -l $USUARIO -c "rm -rf /home/$USUARIO/.cache/"
