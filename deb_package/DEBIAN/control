@@ -4,7 +4,7 @@ Installed-Size: 196
 Maintainer: Crash and Eddie <crash.eddie123@gmail.com>
 Section: science
 Architecture: all
-Depends: mesa-utils, celestia, google-earth-pro-stable, kstars, openuniverse, planets, stellarium, virtual-lab-microscope, freecad, librecad, solvespace, sweethome3d, algodoo-wine, optgeo-i18n, physion-wine, step
+Depends: mesa-utils, celestia, google-earth-pro-stable, kstars, openuniverse, planets, stellarium, virtual-lab-microscope, freecad, librecad, solvespace, sweethome3d, logisim, gresistor-extras-pt, arduino-ide, circuit-simulator, simulide, algodoo-wine, optgeo-i18n, physion-wine, step
 Priority: optional
 Description: Submenus para Aplicativos educationais.
  Os aplicativos educacionais ficaram divididos em submenus na categoria Educacional.

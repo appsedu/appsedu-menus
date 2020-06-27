@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Circuit Simulator Offline Version
+Comment=Work without internet
+Icon=/usr/share/circuitmod2-7/bin/images/about.png
+Exec=java -jar /usr/share/circuitmod2-7/CircuitMod.jar
+Terminal=false
+Type=Application

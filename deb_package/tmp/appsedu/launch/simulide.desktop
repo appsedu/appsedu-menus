@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=SimulIDE
+Comment=Real Time Electronic Circuit Simulator
+Icon=/usr/share/icons/hicolor/256x256/simulide.png
+Exec=/usr/bin/simulide
+Terminal=false
+Type=Application

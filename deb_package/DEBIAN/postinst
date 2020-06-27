@@ -43,9 +43,17 @@ while read USUARIO; do
 	deployLaunch "solvespace" "/usr/bin/solvespace"
 	deployLaunch "gcad3d" "/usr/bin/gcad3d"
 
-	deployLaunch "Algodoo" "/usr/bin/wine"
+	deployLaunch "arduino-ide" "/opt/arduino/arduino"
+	deployLaunch "circuit-simulator" "/usr/bin/circuit-simulator"
+	deployLaunch "circuitmod" "/usr/bin/circuit-simulator"
+	deployLaunch "logisim" "/usr/bin/logisim"
+	deployLaunch "gresistor" "/usr/bin/gresistor"
+	deployLaunch "simulide" "/usr/bin/simulide"
+
+	deployLaunch "algodoo" "/usr/bin/algodoo-wine"
+	deployLaunch "reset-algodoo" "/usr/bin/algodoo-wine"
 	deployLaunch "optgeo-i18n" "/opt/optgeo/optgeo"
-	deployLaunch "Physion" "/usr/bin/wine"
+	deployLaunch "physion" "/usr/bin/physion-wine"
 	deployLaunch "org.kde.step" "/usr/bin/step"
 
 	# deployLaunch "anki"
