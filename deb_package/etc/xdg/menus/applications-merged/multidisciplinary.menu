@@ -10,6 +10,7 @@
 			<Directory>education-Multidisciplinary.directory</Directory>
 			<Include>
 				<Filename>anki.desktop</Filename>
+				<Filename>gnumeric.desktop</Filename>
 			</Include>
 		</Menu>
 	</Menu>

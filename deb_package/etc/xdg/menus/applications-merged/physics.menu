@@ -14,6 +14,7 @@
 				<Filename>optgeo-i18n.desktop</Filename>
 				<Filename>physion.desktop</Filename>
 				<Filename>org.kde.step.desktop</Filename>
+				<Filename>schwarzschild.desktop</Filename>
 			</Include>
 		</Menu>
 	</Menu>

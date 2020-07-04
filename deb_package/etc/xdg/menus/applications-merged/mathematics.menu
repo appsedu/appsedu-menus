@@ -10,6 +10,7 @@
 			<Directory>education-Math.directory</Directory>
 			<Include>
 				<Filename>geogebra-classic.desktop</Filename>
+				<Filename>gnumeric.desktop</Filename>
 				<Filename>io.github.wxmaxima_developers.wxMaxima.desktop</Filename>
 				<Filename>libreoffice-math.desktop</Filename>
 			</Include>

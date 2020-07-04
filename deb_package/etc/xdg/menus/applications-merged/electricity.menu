@@ -15,6 +15,10 @@
 				<Filename>logisim.desktop</Filename>
 				<Filename>gresistor.desktop</Filename>
 				<Filename>simulide.desktop</Filename>
+				<Filename>tinkercad.desktop</Filename>
+				<Filename>logisim-evolution.desktop</Filename>
+				<Filename>digital-simulator.desktop</Filename>
+				<Filename>oregano.desktop</Filename>
 			</Include>
 		</Menu>
 	</Menu>

@@ -10,6 +10,8 @@
 			<Directory>education-Languages.directory</Directory>
 			<Include>
 				<Filename>anki.desktop</Filename>
+				<Filename>gconjugue.desktop</Filename>
+				<Filename>goldendict.desktop</Filename>
 			</Include>
 		</Menu>
 	</Menu>

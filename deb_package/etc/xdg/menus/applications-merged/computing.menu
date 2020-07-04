@@ -13,6 +13,8 @@
 				<Filename>logisim.desktop</Filename>
 				<Filename>org.kde.ktouch.desktop</Filename>
 				<Filename>scratch.desktop</Filename>
+				<Filename>logisim-evolution.desktop</Filename>
+				<Filename>digital-simulator.desktop</Filename>
 			</Include>
 		</Menu>
 	</Menu>

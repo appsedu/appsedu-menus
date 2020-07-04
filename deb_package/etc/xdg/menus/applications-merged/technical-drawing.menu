@@ -14,6 +14,7 @@
 				<Filename>solvespace.desktop</Filename>
 				<Filename>sweethome3d.desktop</Filename>
 				<Filename>gcad3d.desktop</Filename>
+				<Filename>tinkercad.desktop</Filename>
 			</Include>
 		</Menu>
 	</Menu>

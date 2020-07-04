@@ -7,9 +7,9 @@ function deployLaunch {
 		return
 	fi
 	runuser -l $USUARIO -c \
-	"cp -rf /tmp/appsedu/launch/$1.desktop /home/$USUARIO/.local/share/applications/"
+	"cp -rf \"/tmp/appsedu/launch/$1.desktop\" \"/home/$USUARIO/.local/share/applications/\""
 	if [ "$3" == "short" ]; then
-		cp /tmp/appsedu/launch/$1.desktop /home/$USUARIO/Desktop/$1.desktop
+		cp "/tmp/appsedu/launch/$1.desktop" "/home/$USUARIO/Desktop/$1.desktop"
 	fi
 }
 
@@ -18,9 +18,9 @@ function deployLaunchNoGL {
 		return
 	fi
 	runuser -l $USUARIO -c \
-	"cp -rf /tmp/appsedu/nogl/$1.desktop /home/$USUARIO/.local/share/applications/"
+	"cp -rf \"/tmp/appsedu/launch/$1.desktop\" \"/home/$USUARIO/.local/share/applications/\""
 	if [ "$3" == "short" ]; then
-		cp /tmp/appsedu/nogl/$1.desktop /home/$USUARIO/Desktop/$1.desktop
+		cp "/tmp/appsedu/nogl/$1.desktop" "/home/$USUARIO/Desktop/$1.desktop"
 	fi
 }
 
@@ -34,14 +34,15 @@ while read USUARIO; do
 	deployLaunch "planets" "/usr/bin/planets"
 	deployLaunch "gpredict" "/usr/bin/gpredict"
 
-	deployLaunch "3d-microscope-lab" "/usr/bin/firefox"
-	deployLaunch "anatomy-learning" "/usr/bin/firefox"
+	deployLaunch "3d-microscope-lab" "/usr/bin/xdg-open"
+	deployLaunch "anatomy-learning" "/usr/bin/xdg-open"
 	deployLaunch "virtual-microscope" "/usr/bin/virtual-microscope"
-	deployLaunch "zygoto-body" "/usr/bin/firefox"
+	deployLaunch "zygoto-body" "/usr/bin/xdg-open"
 
 	deployLaunch "librecad" "/usr/bin/librecad"
 	deployLaunch "solvespace" "/usr/bin/solvespace"
 	deployLaunch "gcad3d" "/usr/bin/gcad3d"
+	deployLaunch "tinkercad" "/usr/bin/xdg-open"
 
 	deployLaunch "arduino-ide" "/opt/arduino/arduino"
 	deployLaunch "circuit-simulator" "/usr/bin/circuit-simulator"
@@ -49,35 +50,45 @@ while read USUARIO; do
 	deployLaunch "logisim" "/usr/bin/logisim"
 	deployLaunch "gresistor" "/usr/bin/gresistor"
 	deployLaunch "simulide" "/usr/bin/simulide"
+	deployLaunch "logisim-evolution" "/usr/bin/logisim-evolution"
+	deployLaunch "digital-simulator" "/usr/bin/digital-simulator"
+	deployLaunch "oregano" "/usr/bin/oregano"
 
 	deployLaunch "algodoo" "/usr/bin/algodoo-wine"
 	deployLaunch "reset-algodoo" "/usr/bin/algodoo-wine"
 	deployLaunch "optgeo-i18n" "/opt/optgeo/optgeo"
 	deployLaunch "physion" "/usr/bin/physion-wine"
 	deployLaunch "org.kde.step" "/usr/bin/step"
+	deployLaunch "schwarzschild" "/usr/bin/xdg-open"
 
-	# deployLaunch "anki"
-	# 
-	# deployLaunch "geogebra-classic"
-	# deployLaunch "io.github.wxmaxima_developers.wxMaxima"
-	# deployLaunch "libreoffice-math"
-	# deployLaunch "gresistor"
-	# deployLaunch "avogadro2"
-	# deployLaunch "gchem3d-0.14"
-	# deployLaunch "gchemcalc-0.14"
-	# deployLaunch "gchempaint-0.14"
-	# deployLaunch "gelemental"
-	# deployLaunch "gspectrum-0.14"
-	# deployLaunch "gchemtable-0.14"
-	# deployLaunch "org.kde.marble.maps"
-	# deployLaunch "org.kde.marble-qt"
-	# deployLaunch "klavaro"
-	# deployLaunch "scratch"
-	# deployLaunch "logisim"
-	# deployLaunch "google-maps"
-	# deployLaunch "org.kde.kgeography"
-	
-	# deployLaunch "org.kde.ktouch"
+	deployLaunch "google-maps" "/usr/bin/xdg-open"
+	deployLaunch "org.kde.kgeography" "/usr/bin/kgeography"
+	deployLaunch "org.kde.marble-qt" "/usr/bin/marble-qt"
+	deployLaunch "org.kde.marble.maps" "/usr/bin/marble-maps"
+
+	deployLaunch "org.kde.ktouch" "/usr/bin/ktouch"
+	deployLaunch "klavaro" "/usr/bin/klavaro"
+	deployLaunch "scratch" "/usr/bin/scratch"
+
+	deployLaunch "anki" "/usr/bin/anki"
+	deployLaunch "gconjugue" "/usr/bin/gconjugue"
+	deployLaunch "goldendict" "/usr/bin/goldendict"
+
+	deployLaunch "geogebra-classic" "/usr/bin/geogebra-classic"
+	deployLaunch "libreoffice-math" "/usr/bin/libreoffice"
+	deployLaunch "io.github.wxmaxima_developers.wxMaxima" "/usr/bin/wxmaxima"
+	deployLaunch "gnumeric" "/usr/bin/gnumeric"
+
+	deployLaunch "ChemSketch" "/usr/bin/chemsketch-wine"
+	deployLaunch "3D Viewer" "/usr/bin/3dviewer-wine"
+	deployLaunch "avogadro2" "/usr/bin/avogadro2"
+	deployLaunch "gchem3d-0.14" "/usr/bin/gchem3d"
+	deployLaunch "gchemcalc-0.14" "/usr/bin/gchemcalc"
+	deployLaunch "gchempaint-0.14" "/usr/bin/gchempaint"
+	deployLaunch "gelemental" "/usr/bin/gelemental"
+	deployLaunch "gspectrum-0.14" "/usr/bin/gspectrum"
+	deployLaunch "irydium-chemistry-lab" "/usr/bin/irydium-chemistry-lab"
+	deployLaunch "gchemtable-0.14" "/usr/bin/gchemtable"
 
 	glVersion=$(glxinfo | grep "OpenGL version" | cut -d: -f2 | cut -d" " -f2)
 	gl1=$(echo $glVersion | cut -d. -f1)
