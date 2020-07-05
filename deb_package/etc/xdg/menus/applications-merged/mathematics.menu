@@ -13,6 +13,13 @@
 				<Filename>gnumeric.desktop</Filename>
 				<Filename>io.github.wxmaxima_developers.wxMaxima.desktop</Filename>
 				<Filename>libreoffice-math.desktop</Filename>
+				<Filename>org.kde.kbruch.desktop</Filename>
+				<Filename>org.kde.kalgebra.desktop</Filename>
+				<Filename>org.kde.kig.desktop</Filename>
+				<Filename>org.kde.kmplot.desktop</Filename>
+				<Filename>JFractionLab.desktop</Filename>
+				<Filename>graphmonkey.desktop</Filename>
+				<Filename>qalculate-gtk.desktop</Filename>
 			</Include>
 		</Menu>
 	</Menu>

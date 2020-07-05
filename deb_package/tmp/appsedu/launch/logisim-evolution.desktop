@@ -1,7 +1,0 @@
-[Desktop Entry]
-Name=Logisim Evolution
-Comment=Graphical tool for designing and simulating logic circuits
-Exec=logisim-evolution
-Icon=logisim-evolution
-Terminal=false
-Type=Application

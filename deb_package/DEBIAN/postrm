@@ -12,74 +12,15 @@ while read BASEDIR; do
     USUARIO=$(basename $BASEDIR)
 
     rmLaunch "celestia"
-    rmLaunch "google-earth-edu"
-    rmLaunch "org.kde.kstars"
-    rmLaunch "openuniverse"
-    rmLaunch "stellarium"
-    rmLaunch "planets"
-    rmLaunch "gpredict"
-
-    rmLaunch "3d-microscope-lab"
-	rmLaunch "anatomy-learning"
-	rmLaunch "virtual-microscope"
-	rmLaunch "zygoto-body"
-
-    rmLaunch "freecad"
-    rmLaunch "librecad"
-	rmLaunch "solvespace"
-    rmLaunch "sweethome3d"
-	rmLaunch "gcad3d"
-    rmLaunch "tinkercad"
-
-	rmLaunch "arduino-ide"
-	rmLaunch "circuit-simulator"
-	rmLaunch "circuitmod"
-	rmLaunch "logisim"
-	rmLaunch "gresistor"
-	rmLaunch "simulide"
-    rmLaunch "logisim-evolution"
-	rmLaunch "digital-simulator"
-    rmLaunch "oregano"
-
-    rmLaunch "algodoo"
-    rmLaunch "reset-algodoo"
-	rmLaunch "optgeo-i18n"
-	rmLaunch "physion"
-	rmLaunch "org.kde.step"
-    rmLaunch "schwarzschild"
-
-    rmLaunch "google-maps"
-    rmLaunch "org.kde.kgeography"
-    rmLaunch "org.kde.marble-qt"
-	rmLaunch "org.kde.marble.maps"
-
-    rmLaunch "org.kde.ktouch"
-	rmLaunch "klavaro"
-	rmLaunch "scratch"
-    rmLaunch "org.kde.kturtle"
-
-    rmLaunch "anki"
-    rmLaunch "goldendict"
-	rmLaunch "gconjugue"
-    rmLaunch "org.kde.parley"
-    rmLaunch "org.kde.kwordquiz"
-
-    rmLaunch "geogebra-classic"
-	rmLaunch "libreoffice-math"
-	rmLaunch "io.github.wxmaxima_developers.wxMaxima"
-    rmLaunch "gnumeric"
-
-    rmLaunch "ChemSketch"
-	rmLaunch "3D Viewer"
-	rmLaunch "avogadro2"
-	rmLaunch "gchem3d-0.14"
-	rmLaunch "gchemcalc-0.14"
-	rmLaunch "gchempaint-0.14"
-	rmLaunch "gelemental"
-	rmLaunch "gspectrum-0.14"
-	rmLaunch "irydium-chemistry-lab"
-    rmLaunch "gchemtable-0.14"
     
+	while read APPSITEM; do
+		if [ "$APPSITEM" != "" ]; then
+			AppName=$(echo $APPSITEM | cut -d ',' -f 1)
+			rmLaunch "$AppName"
+		else
+			echo ""
+		fi
+	done < /usr/share/appsedu/apps.conf
 
     runuser -l $USUARIO -c "rm -rf /home/$USUARIO/.cache/"
     if [ -f /usr/bin/lxpanelctl ]; then

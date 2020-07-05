@@ -1,7 +1,0 @@
-[Desktop Entry]
-Name=Gpredict
-Comment=Satellite tracker
-Exec=gpredict
-Icon=gpredict-icon
-Terminal=false
-Type=Application

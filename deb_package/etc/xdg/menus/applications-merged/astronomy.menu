@@ -10,7 +10,7 @@
 			<Directory>education-Astronomy.directory</Directory>
 			<Include>
 				<Filename>celestia.desktop</Filename>
-				<Filename>google-earth-edu.desktop</Filename>
+				<Filename>google-earth-pro.desktop</Filename>
 				<Filename>org.kde.kstars.desktop</Filename>
 				<Filename>openuniverse.desktop</Filename>
 				<Filename>planets.desktop</Filename>

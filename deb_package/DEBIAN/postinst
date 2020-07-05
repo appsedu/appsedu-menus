@@ -6,8 +6,12 @@ function deployLaunch {
 		echo "NOT FOUND $2"
 		return
 	fi
+	# runuser -l $USUARIO -c \
+	# "cp -rf \"/tmp/appsedu/launch/$1.desktop\" \"/home/$USUARIO/.local/share/applications/\""
+
 	runuser -l $USUARIO -c \
-	"cp -rf \"/tmp/appsedu/launch/$1.desktop\" \"/home/$USUARIO/.local/share/applications/\""
+	"sed '/Categories=/d' \"/usr/share/applications/$1.desktop\" > \"/home/$USUARIO/.local/share/applications/$1.desktop\""
+
 	if [ "$3" == "short" ]; then
 		cp "/tmp/appsedu/launch/$1.desktop" "/home/$USUARIO/Desktop/$1.desktop"
 	fi
@@ -28,70 +32,15 @@ cat /etc/passwd | grep '/home/' | \
 grep -v 'cups\|syslog' | cut -d ':' -f 1 > /tmp/homes.list
 
 while read USUARIO; do
-	deployLaunch "celestia" "/usr/bin/celestia"
-	deployLaunch "org.kde.kstars" "/usr/bin/kstars"
-	deployLaunch "openuniverse" "/usr/bin/openuniverse"
-	deployLaunch "planets" "/usr/bin/planets"
-	deployLaunch "gpredict" "/usr/bin/gpredict"
-
-	deployLaunch "3d-microscope-lab" "/usr/bin/xdg-open"
-	deployLaunch "anatomy-learning" "/usr/bin/xdg-open"
-	deployLaunch "virtual-microscope" "/usr/bin/virtual-microscope"
-	deployLaunch "zygoto-body" "/usr/bin/xdg-open"
-
-	deployLaunch "librecad" "/usr/bin/librecad"
-	deployLaunch "solvespace" "/usr/bin/solvespace"
-	deployLaunch "gcad3d" "/usr/bin/gcad3d"
-	deployLaunch "tinkercad" "/usr/bin/xdg-open"
-
-	deployLaunch "arduino-ide" "/opt/arduino/arduino"
-	deployLaunch "circuit-simulator" "/usr/bin/circuit-simulator"
-	deployLaunch "circuitmod" "/usr/bin/circuit-simulator"
-	deployLaunch "logisim" "/usr/bin/logisim"
-	deployLaunch "gresistor" "/usr/bin/gresistor"
-	deployLaunch "simulide" "/usr/bin/simulide"
-	deployLaunch "logisim-evolution" "/usr/bin/logisim-evolution"
-	deployLaunch "digital-simulator" "/usr/bin/digital-simulator"
-	deployLaunch "oregano" "/usr/bin/oregano"
-
-	deployLaunch "algodoo" "/usr/bin/algodoo-wine"
-	deployLaunch "reset-algodoo" "/usr/bin/algodoo-wine"
-	deployLaunch "optgeo-i18n" "/opt/optgeo/optgeo"
-	deployLaunch "physion" "/usr/bin/physion-wine"
-	deployLaunch "org.kde.step" "/usr/bin/step"
-	deployLaunch "schwarzschild" "/usr/bin/xdg-open"
-
-	deployLaunch "google-maps" "/usr/bin/xdg-open"
-	deployLaunch "org.kde.kgeography" "/usr/bin/kgeography"
-	deployLaunch "org.kde.marble-qt" "/usr/bin/marble-qt"
-	deployLaunch "org.kde.marble.maps" "/usr/bin/marble-maps"
-
-	deployLaunch "org.kde.ktouch" "/usr/bin/ktouch"
-	deployLaunch "klavaro" "/usr/bin/klavaro"
-	deployLaunch "scratch" "/usr/bin/scratch"
-	deployLaunch "org.kde.kturtle" "/usr/bin/kturtle"
-	
-	deployLaunch "anki" "/usr/bin/anki"
-	deployLaunch "gconjugue" "/usr/bin/gconjugue"
-	deployLaunch "goldendict" "/usr/bin/goldendict"
-	deployLaunch "org.kde.parley" "/usr/bin/parley"
-	deployLaunch "org.kde.kwordquiz" "/usr/bin/kwordquiz"
-
-	deployLaunch "geogebra-classic" "/usr/bin/geogebra-classic"
-	deployLaunch "libreoffice-math" "/usr/bin/libreoffice"
-	deployLaunch "io.github.wxmaxima_developers.wxMaxima" "/usr/bin/wxmaxima"
-	deployLaunch "gnumeric" "/usr/bin/gnumeric"
-
-	deployLaunch "ChemSketch" "/usr/bin/chemsketch-wine"
-	deployLaunch "3D Viewer" "/usr/bin/3dviewer-wine"
-	deployLaunch "avogadro2" "/usr/bin/avogadro2"
-	deployLaunch "gchem3d-0.14" "/usr/bin/gchem3d"
-	deployLaunch "gchemcalc-0.14" "/usr/bin/gchemcalc"
-	deployLaunch "gchempaint-0.14" "/usr/bin/gchempaint"
-	deployLaunch "gelemental" "/usr/bin/gelemental"
-	deployLaunch "gspectrum-0.14" "/usr/bin/gspectrum"
-	deployLaunch "irydium-chemistry-lab" "/usr/bin/irydium-chemistry-lab"
-	deployLaunch "gchemtable-0.14" "/usr/bin/gchemtable"
+	while read APPSITEM; do
+		if [ "$APPSITEM" != "" ]; then
+			AppName=$(echo $APPSITEM | cut -d ',' -f 1)
+			AppRun=$(echo $APPSITEM | cut -d ',' -f 2)
+			deployLaunch "$AppName" "$AppRun"
+		else
+			echo ""
+		fi
+	done < /usr/share/appsedu/apps.conf
 
 	glVersion=$(glxinfo | grep "OpenGL version" | cut -d: -f2 | cut -d" " -f2)
 	gl1=$(echo $glVersion | cut -d. -f1)
@@ -99,19 +48,19 @@ while read USUARIO; do
 
 	if [ "$gl1$gl2" -le "13" ]; then
 		echo "OpenGL <= 1.3"
-		deployLaunchNoGL "google-earth-edu" "/usr/bin/google-earth-pro"
+		deployLaunchNoGL "google-earth-pro" "/usr/bin/google-earth-pro"
 		deployLaunchNoGL "stellarium" "/usr/bin/stellarium"
 		deployLaunchNoGL "freecad" "/usr/bin/freecad"
 		deployLaunch "sweethome3d" "/usr/bin/sweethome3d"
 	elif [ "$gl1$gl2" -le "14" ]; then
 		echo "OpenGL <= 1.4"
-		deployLaunchNoGL "google-earth-edu" "/usr/bin/google-earth-pro"
+		deployLaunchNoGL "google-earth-pro" "/usr/bin/google-earth-pro"
 		deployLaunchNoGL "stellarium" "/usr/bin/stellarium"
 		deployLaunchNoGL "freecad" "/usr/bin/freecad"
 		deployLaunch "sweethome3d" "/usr/bin/sweethome3d"
 	else
 		echo "OpenGL > 1.4"
-		deployLaunch "google-earth-edu" "/usr/bin/google-earth-pro"
+		deployLaunch "google-earth-pro" "/usr/bin/google-earth-pro"
 		deployLaunch "stellarium" "/usr/bin/stellarium"
 		deployLaunch "freecad" "/usr/bin/freecad"
 		deployLaunch "sweethome3d" "/usr/bin/sweethome3d"

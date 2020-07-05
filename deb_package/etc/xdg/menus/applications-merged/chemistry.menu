@@ -19,6 +19,7 @@
 				<Filename>gspectrum-0.14.desktop</Filename>
 				<Filename>irydium-chemistry-lab.desktop</Filename>
 				<Filename>gelemental.desktop</Filename>
+				<Filename>org.kde.kalzium.desktop</Filename>
 			</Include>
 		</Menu>
 	</Menu>

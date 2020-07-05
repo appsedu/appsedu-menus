@@ -1,7 +1,0 @@
-[Desktop Entry]
-Name=3D Viewer
-Exec=3dviewer-wine
-Type=Application
-StartupNotify=true
-Icon=CDF2_SHOW3D.0
-StartupWMClass=show3d.exe
