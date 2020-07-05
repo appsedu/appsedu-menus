@@ -11,6 +11,8 @@
 			<Include>
 				<Filename>anki.desktop</Filename>
 				<Filename>gnumeric.desktop</Filename>
+				<Filename>org.kde.parley.desktop</Filename>
+				<Filename>org.kde.kwordquiz.desktop</Filename>
 			</Include>
 		</Menu>
 	</Menu>

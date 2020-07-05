@@ -69,10 +69,13 @@ while read USUARIO; do
 	deployLaunch "org.kde.ktouch" "/usr/bin/ktouch"
 	deployLaunch "klavaro" "/usr/bin/klavaro"
 	deployLaunch "scratch" "/usr/bin/scratch"
-
+	deployLaunch "org.kde.kturtle" "/usr/bin/kturtle"
+	
 	deployLaunch "anki" "/usr/bin/anki"
 	deployLaunch "gconjugue" "/usr/bin/gconjugue"
 	deployLaunch "goldendict" "/usr/bin/goldendict"
+	deployLaunch "org.kde.parley" "/usr/bin/parley"
+	deployLaunch "org.kde.kwordquiz" "/usr/bin/kwordquiz"
 
 	deployLaunch "geogebra-classic" "/usr/bin/geogebra-classic"
 	deployLaunch "libreoffice-math" "/usr/bin/libreoffice"

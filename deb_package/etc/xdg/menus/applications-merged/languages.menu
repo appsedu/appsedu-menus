@@ -12,6 +12,8 @@
 				<Filename>anki.desktop</Filename>
 				<Filename>gconjugue.desktop</Filename>
 				<Filename>goldendict.desktop</Filename>
+				<Filename>org.kde.parley.desktop</Filename>
+				<Filename>org.kde.kwordquiz.desktop</Filename>
 			</Include>
 		</Menu>
 	</Menu>
