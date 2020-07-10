@@ -1,0 +1,21 @@
+<!DOCTYPE Menu PUBLIC "-//freedesktop//DTD Menu 1.0//EN"
+"http://www.freedesktop.org/standards/menu-spec/menu-1.0.dtd">
+<Menu>
+	<Name>Applications</Name>
+	<Menu>
+		<Name>Education</Name>
+		<Directory>lxde-education.directory</Directory>
+		<Menu>
+			<Name>education-Kids</Name>
+			<Directory>education-Kids.directory</Directory>
+			<Include>
+				<Filename>org.kde.gcompris.desktop</Filename>
+				<Filename>org.kde.khangman.desktop</Filename>
+				<Filename>org.kde.klettres.desktop</Filename>
+				<Filename>sugarizer.desktop</Filename>
+				<Filename>tuxpaint.desktop</Filename>
+				<Filename>tuxmath.desktop</Filename>
+			</Include>
+		</Menu>
+	</Menu>
+</Menu>

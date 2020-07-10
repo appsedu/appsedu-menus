@@ -13,6 +13,7 @@
 				<Filename>gnumeric.desktop</Filename>
 				<Filename>org.kde.parley.desktop</Filename>
 				<Filename>org.kde.kwordquiz.desktop</Filename>
+				<Filename>phet.desktop</Filename>
 			</Include>
 		</Menu>
 	</Menu>

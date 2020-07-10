@@ -5,18 +5,26 @@ function rmLaunch {
     rm -rf "$BASEDIR/Desktop/$1.desktop" 2> /dev/null
 }
 
+## Get list of real user of system
+rm -rf /tmp/homev.list
+rm -rf /tmp/homes.list
 cat /etc/passwd | grep '/home/' | \
-grep -v 'cups\|syslog' | cut -d ':' -f 6 > /tmp/homes.list
+grep -v 'cups\|syslog\|mysql' | cut -d ':' -f 1 > /tmp/homev.list
+while read USER; do
+	if [ -d "/home/$USER" ]; then
+		echo /home/$USER >> /tmp/homes.list
+	fi
+done < /tmp/homev.list
+## / Get list of real user of system
 
 while read BASEDIR; do
     USUARIO=$(basename $BASEDIR)
-
-    rmLaunch "celestia"
     
 	while read APPSITEM; do
 		if [ "$APPSITEM" != "" ]; then
 			AppName=$(echo $APPSITEM | cut -d ',' -f 1)
 			rmLaunch "$AppName"
+			echo "removed launch $AppName"
 		else
 			echo ""
 		fi

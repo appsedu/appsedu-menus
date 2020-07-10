@@ -1,0 +1,21 @@
+<!DOCTYPE Menu PUBLIC "-//freedesktop//DTD Menu 1.0//EN"
+"http://www.freedesktop.org/standards/menu-spec/menu-1.0.dtd">
+<Menu>
+	<Name>Applications</Name>
+	<Menu>
+		<Name>Education</Name>
+		<Directory>lxde-education.directory</Directory>
+		<Menu>
+			<Name>education-Mechatronics</Name>
+			<Directory>education-Mechatronics.directory</Directory>
+			<Include>
+				<Filename>arduino-ide.desktop</Filename>
+				<Filename>webots.desktop</Filename>
+				<Filename>gazebo.desktop</Filename>
+				<Filename>coppelia-sim-edu.desktop</Filename>
+				<Filename>HopsanGUI.desktop</Filename>
+				<Filename>HoLC.desktop</Filename>
+			</Include>
+		</Menu>
+	</Menu>
+</Menu>

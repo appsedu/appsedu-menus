@@ -10,7 +10,7 @@ function deployLaunch {
 	# "cp -rf \"/tmp/appsedu/launch/$1.desktop\" \"/home/$USUARIO/.local/share/applications/\""
 
 	runuser -l $USUARIO -c \
-	"sed '/Categories=/d' \"/usr/share/applications/$1.desktop\" > \"/home/$USUARIO/.local/share/applications/$1.desktop\""
+	"cat '/usr/share/applications/$1.desktop' | sed '/Categories=/d' | sed '/OnlyShowIn=/d' > '/home/$USUARIO/.local/share/applications/$1.desktop'"
 
 	if [ "$3" == "short" ]; then
 		cp "/tmp/appsedu/launch/$1.desktop" "/home/$USUARIO/Desktop/$1.desktop"
@@ -28,8 +28,17 @@ function deployLaunchNoGL {
 	fi
 }
 
+## Get list of real user of system
+rm -rf /tmp/homev.list
+rm -rf /tmp/homes.list
 cat /etc/passwd | grep '/home/' | \
-grep -v 'cups\|syslog' | cut -d ':' -f 1 > /tmp/homes.list
+grep -v 'cups\|syslog\|mysql' | cut -d ':' -f 1 > /tmp/homev.list
+while read USER; do
+	if [ -d "/home/$USER" ]; then
+		echo $USER >> /tmp/homes.list
+	fi
+done < /tmp/homev.list
+## / Get list of real user of system
 
 while read USUARIO; do
 	while read APPSITEM; do

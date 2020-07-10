@@ -20,6 +20,10 @@
 				<Filename>irydium-chemistry-lab.desktop</Filename>
 				<Filename>gelemental.desktop</Filename>
 				<Filename>org.kde.kalzium.desktop</Filename>
+				<Filename>gperiodic.desktop</Filename>
+				<Filename>chemtool.desktop</Filename>
+				<Filename>easychem.desktop</Filename>
+				<Filename>gdis.desktop</Filename>
 			</Include>
 		</Menu>
 	</Menu>
