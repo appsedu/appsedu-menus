@@ -41,6 +41,9 @@ done < /tmp/homev.list
 ## / Get list of real user of system
 
 while read USUARIO; do
+	runuser -l $USUARIO -c \
+	"mkdir -p /home/$USUARIO/.local/share/applications/"
+
 	while read APPSITEM; do
 		if [ "$APPSITEM" != "" ]; then
 			AppName=$(echo $APPSITEM | cut -d ',' -f 1)
