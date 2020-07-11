@@ -4,6 +4,7 @@ Installed-Size: 239
 Maintainer: Crash and Eddie <crash.eddie123@gmail.com>
 Section: science
 Architecture: all
+Depends: mesa-utils
 Recommends: celestia, google-earth-pro-stable, kstars, openuniverse, planets, stellarium, gpredict, virtual-lab-microscope, freecad, librecad, solvespace, sweethome3d, gcad3d, arduino-ide, circuit-simulator, logisim, simulide, gresistor-extras-pt, digital-simulator, logisim-evolution, oregano, algodoo-wine, optgeo-i18n, physion-wine, step, kgeography, marble-qt, marble-maps, ktouch, klavaro, scratch, kturtle, anki, gconjugue, goldendict-extras-pt, parley, kwordquiz, geogebra-classic, wxmaxima, kbruch, jfractionlab, kalgebra, graphmonkey, qalculate-gtk, kig, kmplot, chemsketch-acd-wine, avogadro, gcu-bin, gchempaint, irydium-chemistry-lab, gelemental, kalzium, gperiodic, chemtool, easychem, gdis, code, codeblocks, xampp, coppelia-sim-edu, gazebo11, hopsan, webots, gcompris, khangman, klettres, sugarizer, tuxmath, tuxpaint
 Priority: optional
 Description: Submenus para Aplicativos educationais.
