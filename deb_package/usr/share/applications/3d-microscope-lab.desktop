@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=3D Microscope Lab
-Exec=xdg-open https://courses.ecampus.oregonstate.edu/bi206/virtual_scope/build.html
+Exec=/usr/bin/3d-microscope-lab
 Icon=3d-microscope
 Terminal=false
 Type=Application

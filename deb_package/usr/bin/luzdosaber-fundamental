@@ -1,0 +1,5 @@
+#!/bin/bash
+
+xdg-open http://app.luzdosaber.virtual.ufc.br &
+sleep 1
+xdotool search --sync --onlyvisible --class "Firefox" windowactivate key F11

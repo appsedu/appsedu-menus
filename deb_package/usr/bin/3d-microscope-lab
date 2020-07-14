@@ -1,0 +1,5 @@
+#!/bin/bash
+
+xdg-open https://courses.ecampus.oregonstate.edu/bi206/virtual_scope/build.html &
+# sleep 1
+# xdotool search --sync --onlyvisible --class "Firefox" windowactivate key F11
