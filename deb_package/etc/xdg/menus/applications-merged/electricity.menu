@@ -19,6 +19,7 @@
 				<Filename>logisim-evolution.desktop</Filename>
 				<Filename>digital-simulator.desktop</Filename>
 				<Filename>oregano.desktop</Filename>
+				<Filename>qelectrotech.desktop</Filename>
 			</Include>
 		</Menu>
 	</Menu>
