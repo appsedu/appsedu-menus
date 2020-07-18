@@ -10,6 +10,7 @@
 			<Directory>education-History.directory</Directory>
 			<Include>
 				<Filename>geacron.desktop</Filename>
+				<Filename>0ad.desktop</Filename>
 			</Include>
 		</Menu>
 	</Menu>
