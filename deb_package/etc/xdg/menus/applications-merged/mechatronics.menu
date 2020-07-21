@@ -15,6 +15,7 @@
 				<Filename>coppelia-sim-edu.desktop</Filename>
 				<Filename>HopsanGUI.desktop</Filename>
 				<Filename>HoLC.desktop</Filename>
+				<Filename>qelectrotech.desktop</Filename>
 			</Include>
 		</Menu>
 	</Menu>

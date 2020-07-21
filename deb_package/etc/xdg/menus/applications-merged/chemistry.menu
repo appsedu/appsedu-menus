@@ -24,6 +24,7 @@
 				<Filename>chemtool.desktop</Filename>
 				<Filename>easychem.desktop</Filename>
 				<Filename>gdis.desktop</Filename>
+				<Filename>elements.desktop</Filename>
 			</Include>
 		</Menu>
 	</Menu>
