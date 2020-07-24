@@ -17,6 +17,10 @@
 				<Filename>tuxmath.desktop</Filename>
 				<Filename>luzdosaber-fundamental.desktop</Filename>
 				<Filename>scratch.desktop</Filename>
+				<Filename>tuxtype.desktop</Filename>
+				<Filename>pysycache.desktop</Filename>
+				<Filename>pysycache-admin.desktop</Filename>
+				<Filename>net.minetest.minetest.desktop</Filename>
 			</Include>
 		</Menu>
 	</Menu>

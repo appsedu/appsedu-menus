@@ -15,6 +15,7 @@
 				<Filename>physion.desktop</Filename>
 				<Filename>org.kde.step.desktop</Filename>
 				<Filename>schwarzschild.desktop</Filename>
+				<Filename>opticalraytracer.desktop</Filename>
 			</Include>
 		</Menu>
 	</Menu>
