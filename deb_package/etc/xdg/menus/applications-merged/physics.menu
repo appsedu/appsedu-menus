@@ -16,6 +16,8 @@
 				<Filename>org.kde.step.desktop</Filename>
 				<Filename>schwarzschild.desktop</Filename>
 				<Filename>opticalraytracer.desktop</Filename>
+				<Filename>org.concord.energy.energy2d.desktop</Filename>
+				<Filename>openmeca.desktop</Filename>
 			</Include>
 		</Menu>
 	</Menu>

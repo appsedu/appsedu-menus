@@ -14,6 +14,7 @@
 				<Filename>org.kde.parley.desktop</Filename>
 				<Filename>org.kde.kwordquiz.desktop</Filename>
 				<Filename>phet.desktop</Filename>
+				<Filename>eduactiv8.desktop</Filename>
 			</Include>
 		</Menu>
 	</Menu>

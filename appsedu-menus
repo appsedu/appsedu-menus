@@ -1,11 +1,11 @@
 Package: appsedu-menus
-Version: 0.5.4
-Installed-Size: 176
+Version: 0.5.6
+Installed-Size: 220
 Maintainer: Crash and Eddie <crash.eddie123@gmail.com>
 Section: science
 Architecture: all
 Depends: xdotool, mesa-utils
-Recommends: celestia, google-earth-pro-stable, kstars, openuniverse, planets, stellarium, gpredict, virtual-lab-microscope, freecad, librecad, solvespace, sweethome3d, gcad3d, arduino-ide, circuit-simulator, logisim, simulide, gresistor-extras-pt, digital-simulator, logisim-evolution, oregano, qelectrotech, algodoo-wine, optgeo-i18n, physion-wine, step, kgeography, marble-qt, marble-maps, ktouch, klavaro, scratch, kturtle, anki, gconjugue, goldendict-extras-pt, parley, kwordquiz, geogebra-classic, wxmaxima, kbruch, jfractionlab, kalgebra, graphmonkey, qalculate-gtk, kig, kmplot, carmetal, chemsketch-acd-wine, avogadro, gcu-bin, gchempaint, irydium-chemistry-lab, gelemental, kalzium, gperiodic, chemtool, easychem, gdis, code, codeblocks, xampp, coppelia-sim-edu, gazebo11, hopsan, webots, gcompris, khangman, klettres, sugarizer, tuxmath, tuxpaint
+Recommends: celestia, google-earth-pro-stable, kstars, openuniverse, planets, stellarium, gpredict, virtual-lab-microscope, freecad, librecad, solvespace, sweethome3d, gcad3d, arduino-ide, circuit-simulator, logisim, simulide, gresistor-extras-pt, digital-simulator, logisim-evolution, oregano, qelectrotech, algodoo-wine, optgeo-i18n, physion-wine, step, opticalraytracer, energy2d, openmeca, kgeography, marble-qt, marble-maps, ktouch, klavaro, scratch, kturtle, anki, gconjugue, goldendict-extras-pt, parley, kwordquiz, osdlyrics, geogebra-classic, wxmaxima, kbruch, jfractionlab, kalgebra, graphmonkey, qalculate-gtk, kig, kmplot, carmetal, chemsketch-acd-wine, avogadro, gcu-bin, gchempaint, irydium-chemistry-lab, gelemental, kalzium, gperiodic, chemtool, easychem, gdis, code, codeblocks, xampp, coppelia-sim-edu, gazebo11, hopsan, webots, free-cnc-simulator-wine, camotics, gcompris, khangman, klettres, sugarizer, tuxmath, tuxpaint, minetest, minetest-mod-basic-materials, pysycache, tuxtype, omnitux, eduactiv8
 Priority: optional
 Description: Submenus para Aplicativos educationais.
  Os aplicativos educacionais ficaram divididos em submenus na categoria Educacional.

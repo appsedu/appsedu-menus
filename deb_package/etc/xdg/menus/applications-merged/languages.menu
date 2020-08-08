@@ -14,6 +14,8 @@
 				<Filename>goldendict.desktop</Filename>
 				<Filename>org.kde.parley.desktop</Filename>
 				<Filename>org.kde.kwordquiz.desktop</Filename>
+				<Filename>osdlyrics.desktop</Filename>
+				<Filename>duolingo.desktop</Filename>
 			</Include>
 		</Menu>
 	</Menu>

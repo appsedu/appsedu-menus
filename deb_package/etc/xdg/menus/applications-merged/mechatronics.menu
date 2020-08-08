@@ -16,6 +16,8 @@
 				<Filename>HopsanGUI.desktop</Filename>
 				<Filename>HoLC.desktop</Filename>
 				<Filename>qelectrotech.desktop</Filename>
+				<Filename>com.cncsimulator.free-cnc-simulator-wine.desktop</Filename>
+				<Filename>CAMotics.desktop</Filename>
 			</Include>
 		</Menu>
 	</Menu>
