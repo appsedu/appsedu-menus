@@ -13,6 +13,7 @@
 				<Filename>anatomy-learning.desktop</Filename>
 				<Filename>virtual-microscope.desktop</Filename>
 				<Filename>zygoto-body.desktop</Filename>
+				<Filename>com.github.google.google-cow.desktop</Filename>
 			</Include>
 		</Menu>
 	</Menu>
