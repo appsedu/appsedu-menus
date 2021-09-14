@@ -79,7 +79,4 @@ while read USUARIO; do
 	fi
 
 	runuser -l $USUARIO -c "rm -rf /home/$USUARIO/.cache/"
-	if [ -f /usr/bin/lxpanelctl ]; then
-		su - $USUARIO -c "lxpanelctl restart"
-	fi
 done < /tmp/homes.list
